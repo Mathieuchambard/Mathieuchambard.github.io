@@ -1,17 +1,6 @@
-const fs = require("fs");
-const { parse } = require("csv-parse");
-
-fs.createReadStream("versionTableProjet.csv")
-  .pipe(parse({ delimiter: ",", from_line: 2 }))
-  .on("data", function (row) {
-    console.log(row);
-  })
-  .on("error", function (error) {
-    console.log(error.message);
-  })
-  .on("end", function () {
-    console.log("finished");
-  });
+fetch('data.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 
 
 var svg = d3.select("#svg1").append("svg");
